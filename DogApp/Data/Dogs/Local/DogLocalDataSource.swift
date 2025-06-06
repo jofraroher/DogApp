@@ -6,10 +6,10 @@
 //
 
 final class DogLocalDataSource: DogLocalDataSourceType {
+    
+    private let storage: any EntityStorage<DogDTO>
 
-    private let storage: DogsLocalStorageType
-
-    init(storage: DogsLocalStorageType) {
+    init(storage: any EntityStorage<DogDTO>) {
         self.storage = storage
     }
 

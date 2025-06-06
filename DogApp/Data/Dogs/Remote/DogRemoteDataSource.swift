@@ -8,6 +8,7 @@
 import Foundation
 
 final class DogRemoteDataSource: DogRemoteDataSourceType {
+
     private let networkClient: NetworkClientType
 
     init(networkClient: NetworkClientType = NetworkClient()) {
