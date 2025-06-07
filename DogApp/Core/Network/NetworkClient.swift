@@ -9,11 +9,17 @@ import Foundation
 
 final class NetworkClient: NetworkClientType {
     
+    private let session: URLSessionType
+    
+    init(session: URLSessionType = URLSession.shared) {
+        self.session = session
+    }
+    
     func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T {
         let request = try endpoint.urlRequest()
         
         do {
-            let (data, response) = try await URLSession.shared.data(for: request)
+            let (data, response) = try await session.data(for: request)
             
             guard let httpResponse = response as? HTTPURLResponse else {
                 throw NetworkError.noData
