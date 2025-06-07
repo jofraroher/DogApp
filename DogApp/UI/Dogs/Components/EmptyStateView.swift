@@ -12,6 +12,7 @@ struct EmptyStateView: View {
 
     var body: some View {
         Text(message)
+            .foregroundStyle(.textPrimary)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
