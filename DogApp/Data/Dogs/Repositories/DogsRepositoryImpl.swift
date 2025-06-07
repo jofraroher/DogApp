@@ -30,11 +30,4 @@ final class DogsRepositoryImpl: DogsRepositoryType {
             return localDogs.map { $0.toDomain() }
         }
     }
-
-    private func saveDogs(_ dogs: [Dog]) async throws {
-        let dtos = dogs.map {
-            DogDTO(id: $0.id, name: $0.name, description: $0.description, image: $0.image, age: $0.age)
-        }
-        try localDataSource.saveDogs(dtos)
-    }
 }
