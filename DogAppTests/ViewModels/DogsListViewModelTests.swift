@@ -15,7 +15,7 @@ final class DogsListViewModelTests: XCTestCase {
     func testOnAppearLoadsDogsSuccessfully() async {
         // ARRANGE
         let sut = makeSUT()
-        sut.useCase.dogsToReturn = [TestData.dog]
+        sut.useCase.dogsToReturn = [TestData.dog.toDomain()]
         
         // ACT
         await sut.viewModel.onAppear()

@@ -11,7 +11,7 @@ import Foundation
 
 enum TestData {
 
-    static let dog = Dog(
+    static let dog = DogDTO(
         id: "1",
         name: "Luna",
         description: "Friendly and loyal",
@@ -19,7 +19,7 @@ enum TestData {
         age: 3
     )
 
-    static let secondDog = Dog(
+    static let secondDog = DogDTO(
         id: "2",
         name: "Tobi",
         description: "Playful and energetic",

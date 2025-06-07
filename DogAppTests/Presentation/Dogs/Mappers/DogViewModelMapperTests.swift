@@ -16,7 +16,7 @@ final class DogViewModelMapperTests: XCTestCase {
         let dog = TestData.dog
 
         // ACT
-        let viewModel = DogViewModelMapper.map(from: dog)
+        let viewModel = DogViewModelMapper.map(from: dog.toDomain())
 
         // ASSERT
         XCTAssertEqual(viewModel.id, dog.id)
@@ -29,8 +29,8 @@ final class DogViewModelMapperTests: XCTestCase {
     func testMapDogListReturnsExpectedViewModels() {
         // ARRANGE
         let dogs = [
-            TestData.dog,
-            TestData.secondDog
+            TestData.dog.toDomain(),
+            TestData.secondDog.toDomain()
         ]
 
         // ACT

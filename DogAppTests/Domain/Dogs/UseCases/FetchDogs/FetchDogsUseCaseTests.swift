@@ -13,7 +13,7 @@ final class FetchDogsUseCaseTests: XCTestCase {
     
     func testExecuteReturnsDogs() async throws {
         // ARRANGE
-        let expectedDogs = [TestData.dog]
+        let expectedDogs = [TestData.dog.toDomain()]
         let sut = makeSUT(result: .success(expectedDogs))
         // ACT
         let result = try await sut.useCase.execute()
