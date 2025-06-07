@@ -12,4 +12,5 @@ struct DogViewModel: Identifiable, Equatable {
     let name: String
     let description: String
     let imageURL: URL
+    let age: Int
 }

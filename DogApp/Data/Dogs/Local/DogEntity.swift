@@ -15,12 +15,14 @@ final class DogEntity {
     var name: String
     var dogDescription: String
     var image: String
+    var age: Int
 
-    init(id: String, name: String, dogDescription: String, image: String) {
+    init(id: String, name: String, dogDescription: String, image: String, age: Int) {
         self.id = id
         self.name = name
         self.dogDescription = dogDescription
         self.image = image
+        self.age = age
     }
 }
 
@@ -29,10 +31,10 @@ extension DogEntity: DTOTransformable {
     typealias DTOType = DogDTO
 
     static func fromDTO(_ dto: DogDTO) -> DogEntity {
-        .init(id: dto.id, name: dto.name, dogDescription: dto.description, image: dto.image)
+        .init(id: dto.id, name: dto.name, dogDescription: dto.description, image: dto.image, age: dto.age)
     }
 
     func toDTO() -> DogDTO {
-        .init(id: id, name: name, description: dogDescription, image: image)
+        .init(id: id, name: name, description: dogDescription, image: image, age: age)
     }
 }

@@ -41,3 +41,25 @@ final class DogsListViewModel: ObservableObject {
         isLoading = false
     }
 }
+
+extension DogsListViewModel {
+
+    enum ViewState {
+        case loading
+        case error(String)
+        case empty
+        case loaded([DogViewModel])
+    }
+
+    var state: ViewState {
+        if isLoading {
+            return .loading
+        } else if let errorMessage = errorMessage {
+            return .error(errorMessage)
+        } else if dogs.isEmpty {
+            return .empty
+        } else {
+            return .loaded(dogs)
+        }
+    }
+}

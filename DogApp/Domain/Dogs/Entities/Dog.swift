@@ -11,4 +11,5 @@ struct Dog: Identifiable, Equatable {
     let name: String
     let description: String
     let image: String
+    let age: Int
 }

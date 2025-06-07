@@ -13,7 +13,8 @@ struct DogViewModelMapper {
             id: domain.id,
             name: domain.name.capitalized,
             description: domain.description,
-            imageURL: URL(string: domain.image) ?? URL(string: "")!
+            imageURL: URL(string: domain.image) ?? URL(string: "")!,
+            age: domain.age
         )
     }
 
