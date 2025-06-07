@@ -14,5 +14,5 @@ protocol DogsListViewModelType: ObservableObject {
     var errorMessage: String? { get }
     var state: DogsListViewModel.ViewState { get }
 
-    func onAppear()
+    func onAppear() async
 }

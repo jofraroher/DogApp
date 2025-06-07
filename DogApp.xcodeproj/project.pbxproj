@@ -27,6 +27,7 @@
 		118775252DF33FE00071253A /* DogApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		118775342DF33FE10071253A /* DogAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1187753E2DF33FE10071253A /* DogAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		11D3EB282DF4B073002C1340 /* DogApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = DogApp.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +76,7 @@
 		1187751C2DF33FE00071253A = {
 			isa = PBXGroup;
 			children = (
+				11D3EB282DF4B073002C1340 /* DogApp.xctestplan */,
 				118775272DF33FE00071253A /* DogApp */,
 				118775372DF33FE10071253A /* DogAppTests */,
 				118775412DF33FE10071253A /* DogAppUITests */,
@@ -178,6 +180,7 @@
 					};
 					118775332DF33FE10071253A = {
 						CreatedOnToolsVersion = 16.3;
+						LastSwiftMigration = 1630;
 						TestTargetID = 118775242DF33FE00071253A;
 					};
 					1187753D2DF33FE10071253A = {
@@ -459,6 +462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -467,6 +471,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.rosales.francisco.DogAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DogApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DogApp";
@@ -477,6 +482,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

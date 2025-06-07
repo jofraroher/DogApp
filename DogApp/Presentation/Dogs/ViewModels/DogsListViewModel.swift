@@ -20,8 +20,8 @@ final class DogsListViewModel: DogsListViewModelType {
         self.fetchDogsUseCase = fetchDogsUseCase
     }
     
-    func onAppear() {
-        Task { await loadDogs() }
+    func onAppear() async {
+        await loadDogs()
     }
     
     private func loadDogs() async {
@@ -40,7 +40,7 @@ final class DogsListViewModel: DogsListViewModelType {
 }
 
 extension DogsListViewModel {
-    enum ViewState {
+    enum ViewState: Equatable {
         case loading
         case error(String)
         case empty

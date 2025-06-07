@@ -1,0 +1,46 @@
+{
+  "configurations" : [
+    {
+      "id" : "7015431F-C240-4CDE-892F-3D56C0F8A97A",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:DogApp.xcodeproj",
+          "identifier" : "118775242DF33FE00071253A",
+          "name" : "DogApp"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:DogApp.xcodeproj",
+      "identifier" : "118775242DF33FE00071253A",
+      "name" : "DogApp"
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:DogApp.xcodeproj",
+        "identifier" : "118775332DF33FE10071253A",
+        "name" : "DogAppTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:DogApp.xcodeproj",
+        "identifier" : "1187753D2DF33FE10071253A",
+        "name" : "DogAppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -25,7 +25,11 @@ struct DogsListView<ViewModel: DogsListViewModelType>: View {
             .navigationTitle(Text(Strings.DogsList.navigationTitle))
             .navigationBarTitleDisplayMode(.inline)
         }
-        .onAppear { viewModel.onAppear() }
+        .onAppear {
+            Task {
+                await viewModel.onAppear()
+            }
+        }
     }
     
     @ViewBuilder
@@ -34,7 +38,15 @@ struct DogsListView<ViewModel: DogsListViewModelType>: View {
         case .loading:
             LoadingView(title: String(localized: Strings.DogsList.loadingTitle))
         case .error(let title):
-            ErrorView(title: title, buttonTitle: String(localized: Strings.DogsList.retryButtonTitle), retryAction: viewModel.onAppear)
+            ErrorView(
+                title: title,
+                buttonTitle: String(localized: Strings.DogsList.retryButtonTitle),
+                retryAction: {
+                    Task {
+                        await viewModel.onAppear()
+                    }
+                }
+            )
         case .empty:
             EmptyStateView(message: String(localized: Strings.DogsList.noDogsAvailableMessage))
         case .loaded(let dogs):
