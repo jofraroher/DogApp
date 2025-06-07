@@ -10,15 +10,20 @@ import Foundation
 final class DogRemoteDataSource: DogRemoteDataSourceType {
 
     private let networkClient: NetworkClientType
-
-    init(networkClient: NetworkClientType = NetworkClient()) {
+    private let config: APIConfigurationType
+    
+    init(
+        networkClient: NetworkClientType = NetworkClient(),
+        config: APIConfigurationType = APIConfiguration.default
+    ) {
         self.networkClient = networkClient
+        self.config = config
     }
 
     func fetchDogs() async throws -> [DogDTO] {
         let endpoint = Endpoint(
-            baseURL: "https://jsonblob.com",
-            path: "/api/1151549092634943488",
+            baseURL: config.baseURL,
+            path: config.path,
             method: .get
         )
 
