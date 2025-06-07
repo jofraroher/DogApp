@@ -18,7 +18,7 @@ struct DogsListView<ViewModel: DogsListViewModelType>: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.background.ignoresSafeArea()
+                Color.backgroundBase.ignoresSafeArea()
                 
                 content
             }

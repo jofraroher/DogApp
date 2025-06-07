@@ -54,21 +54,21 @@ struct DogCardContentView: View {
 
             VStack(alignment: .leading, spacing: stackSpacing) {
                 Text(dog.name)
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.primary)
+                    .font(.title2)
+                    .fontWeight(.medium)
+                    .foregroundColor(.textPrimary)
 
                 Text(dog.description)
-                    .font(.body)
-                    .foregroundColor(.secondary)
+                    .font(.subheadline)
+                    .foregroundColor(.textSecondary)
                     .multilineTextAlignment(.leading)
                     .lineLimit(textLineLimit)
                     .truncationMode(.tail)
 
                 Text(Strings.DogCard.dogAgeTitle(dog.age))
                     .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.primary)
+                    .fontWeight(.medium)
+                    .foregroundColor(.textPrimary)
             }
             .padding(.horizontal)
         }
