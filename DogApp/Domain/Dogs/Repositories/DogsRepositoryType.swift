@@ -7,5 +7,4 @@
 
 protocol DogsRepositoryType {
     func fetchDogs() async throws -> [Dog]
-    func saveDogs(_ dogs: [Dog]) async throws
 }

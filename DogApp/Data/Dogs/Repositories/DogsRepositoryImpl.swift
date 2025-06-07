@@ -31,7 +31,7 @@ final class DogsRepositoryImpl: DogsRepositoryType {
         }
     }
 
-    func saveDogs(_ dogs: [Dog]) async throws {
+    private func saveDogs(_ dogs: [Dog]) async throws {
         let dtos = dogs.map {
             DogDTO(id: $0.id, name: $0.name, description: $0.description, image: $0.image, age: $0.age)
         }
