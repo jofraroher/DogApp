@@ -8,37 +8,43 @@
 #if DEBUG
 import Foundation
 
-extension DogsListViewModel {
+final class MockDogsListViewModel: DogsListViewModelType {
+
+    var dogs: [DogViewModel] = []
+    var isLoading: Bool = false
+    var errorMessage: String? = nil
+    var state: DogsListViewModel.ViewState = .empty
     
-    static var mockWithDogs: DogsListViewModel {
-        let dogsUseCaseMock = MockFetchDogsUseCase()
-        dogsUseCaseMock.dogs = [.mock, .mockLongDescription]
-        let vm = DogsListViewModel(fetchDogsUseCase: dogsUseCaseMock)
-        vm.isLoading = false
-        vm.errorMessage = nil
+    func onAppear() { }
+}
+
+extension MockDogsListViewModel {
+    static var withDogs: MockDogsListViewModel {
+        let vm = MockDogsListViewModel()
+        vm.dogs = [.mock, .mockLongDescription]
+        vm.state = .loaded(vm.dogs)
         return vm
     }
-
-    static var mockLoading: DogsListViewModel {
-        let vm = DogsListViewModel(fetchDogsUseCase: MockFetchDogsUseCase())
+    
+    static var loading: MockDogsListViewModel {
+        let vm = MockDogsListViewModel()
         vm.isLoading = true
-        vm.errorMessage = nil
+        vm.state = .loading
         return vm
     }
-
-    static var mockError: DogsListViewModel {
-        let dogsUseCaseMock = MockFetchDogsUseCase()
-        dogsUseCaseMock.errorResponse = true
-        let vm = DogsListViewModel(fetchDogsUseCase: dogsUseCaseMock)
-        vm.isLoading = false
-        vm.errorMessage = "No se pudo cargar los perros"
+    
+    static var error: MockDogsListViewModel {
+        let vm = MockDogsListViewModel()
+        let message = String(localized: Strings.DogsList.loadingError)
+        vm.errorMessage = message
+        vm.state = .error(message)
         return vm
     }
-
-    static var mockEmpty: DogsListViewModel {
-        let vm = DogsListViewModel(fetchDogsUseCase: MockFetchDogsUseCase())
-        vm.isLoading = false
-        vm.errorMessage = nil
+    
+    static var empty: MockDogsListViewModel {
+        let vm = MockDogsListViewModel()
+        vm.dogs = []
+        vm.state = .empty
         return vm
     }
 }

@@ -18,7 +18,7 @@ struct Endpoint {
 
     init(
         baseURL: String,
-        path: String = "",
+        path: String = String(),
         method: HTTPMethod = .get,
         headers: [String: String] = [:],
         queryItems: [URLQueryItem]? = nil,

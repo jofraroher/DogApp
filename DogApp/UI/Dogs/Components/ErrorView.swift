@@ -10,19 +10,23 @@ import SwiftUI
 struct ErrorView: View {
     
     let title: String
-    let message: String
+    let buttonTitle: String
     let retryAction: () -> Void
 
     var body: some View {
         VStack(spacing: 12) {
-            Text(message)
+            Text(title)
                 .foregroundColor(.red)
-            Button(title, action: retryAction)
+            Button(buttonTitle, action: retryAction)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
 #Preview {
-    ErrorView(title: "Reintentar", message: "Error al cargar los datos", retryAction: {})
+    ErrorView(
+        title: String(localized: Strings.DogsList.loadingError),
+        buttonTitle: String(localized: Strings.DogsList.retryButtonTitle),
+        retryAction: { }
+    )
 }

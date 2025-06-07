@@ -8,12 +8,13 @@
 import Foundation
 
 struct DogViewModelMapper {
+
     static func map(from domain: Dog) -> DogViewModel {
         DogViewModel(
             id: domain.id,
             name: domain.name.capitalized,
             description: domain.description,
-            imageURL: URL(string: domain.image) ?? URL(string: "")!,
+            imageURL: URL(string: domain.image),
             age: domain.age
         )
     }

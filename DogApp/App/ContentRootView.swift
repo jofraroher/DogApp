@@ -19,7 +19,7 @@ struct ContentRootView: View {
         let storage = SwiftDataStorage<DogEntity>(context: context)
 
         let localDataSource = DogLocalDataSource(storage: storage)
-        let remoteDataSource = DogRemoteDataSource() // o inyectás NetworkClient
+        let remoteDataSource = DogRemoteDataSource()
 
         let repository = DogsRepositoryImpl(
             remoteDataSource: remoteDataSource,

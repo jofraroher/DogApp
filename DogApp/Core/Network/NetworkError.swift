@@ -8,6 +8,7 @@
 import Foundation
 
 enum NetworkError: Error, LocalizedError {
+
     case badURL
     case decodingError(Error)
     case requestFailed(Error)
@@ -16,11 +17,20 @@ enum NetworkError: Error, LocalizedError {
 
     var errorDescription: String? {
         switch self {
-        case .badURL: return "Invalid URL"
-        case .decodingError(let e): return "Decoding error: \(e.localizedDescription)"
-        case .requestFailed(let e): return "Request failed: \(e.localizedDescription)"
-        case .invalidStatusCode(let code): return "Invalid status code: \(code)"
-        case .noData: return "No data received"
+        case .badURL:
+            return String(localized: Strings.NetworkError.badURL)
+            
+        case .decodingError(let error):
+            return String(localized: Strings.NetworkError.decodingError(error.localizedDescription))
+            
+        case .requestFailed(let error):
+            return String(localized: Strings.NetworkError.requestFailed(error.localizedDescription))
+            
+        case .invalidStatusCode(let code):
+            return String(localized: Strings.NetworkError.invalidStatusCode(code))
+            
+        case .noData:
+            return String(localized: Strings.NetworkError.noData)
         }
     }
 }

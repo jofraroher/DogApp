@@ -18,5 +18,5 @@ struct LoadingView: View {
 }
 
 #Preview {
-    LoadingView(title: "Cargando...")
+    LoadingView(title: String(localized: Strings.DogsList.loadingTitle))
 }

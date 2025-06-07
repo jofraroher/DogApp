@@ -17,5 +17,5 @@ struct EmptyStateView: View {
 }
 
 #Preview {
-    EmptyStateView(message: "No hay perros disponibles")
+    EmptyStateView(message: String(localized: Strings.DogsList.noDogsAvailableMessage))
 }
