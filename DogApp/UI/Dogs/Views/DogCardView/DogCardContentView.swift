@@ -10,16 +10,49 @@ import SwiftUI
 struct DogCardContentView: View {
     
     let dog: DogViewModel
+    
+    let frameHeight: CGFloat
+    let colorOpacity: CGFloat
+    let cornerRadius: CGFloat
+    let shadowX: CGFloat
+    let shadowY: CGFloat
+    let stackSpacing: CGFloat
+    let textLineLimit: Int
+    
+    init(
+        dog: DogViewModel,
+        frameHeight: CGFloat = ConstantsLayout.DogCardContentViewLayout.frameHeight,
+        colorOpacity: CGFloat = ConstantsLayout.DogCardContentViewLayout.colorOpacity,
+        cornerRadius: CGFloat = ConstantsLayout.DogCardContentViewLayout.cornerRadius,
+        shadowX: CGFloat = ConstantsLayout.DogCardContentViewLayout.shadowX,
+        shadowY: CGFloat = ConstantsLayout.DogCardContentViewLayout.shadowY,
+        stackSpacing: CGFloat = ConstantsLayout.DogCardContentViewLayout.stackSpacing,
+        textLineLimit: Int = ConstantsLayout.DogCardContentViewLayout.textLineLimit
+    ) {
+        self.dog = dog
+        self.frameHeight = frameHeight
+        self.colorOpacity = colorOpacity
+        self.cornerRadius = cornerRadius
+        self.shadowX = shadowX
+        self.shadowY = shadowY
+        self.stackSpacing = stackSpacing
+        self.textLineLimit = textLineLimit
+    }
 
     var body: some View {
         ZStack {
             Color(uiColor: .systemBackground)
                 .clipShape(RoundedCornerShape())
-                .frame(height: 170)
-                .shadow(color: Color.black.opacity(0.12), radius: 6, x: 0, y: 3)
+                .frame(height: frameHeight)
+                .shadow(
+                    color: Color.black.opacity(colorOpacity),
+                    radius: cornerRadius,
+                    x: shadowX,
+                    y: shadowY
+                )
             
 
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: stackSpacing) {
                 Text(dog.name)
                     .font(.title3)
                     .fontWeight(.semibold)
@@ -29,7 +62,7 @@ struct DogCardContentView: View {
                     .font(.body)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.leading)
-                    .lineLimit(2)
+                    .lineLimit(textLineLimit)
                     .truncationMode(.tail)
 
                 Text(Strings.DogCard.dogAgeTitle(dog.age))

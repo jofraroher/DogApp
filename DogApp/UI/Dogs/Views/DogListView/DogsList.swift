@@ -10,10 +10,20 @@ import SwiftUI
 struct DogsList: View {
     
     let dogs: [DogViewModel]
+    
+    let stackSpacing: CGFloat
+    
+    init(
+        dogs: [DogViewModel],
+        stackSpacing: CGFloat = ConstantsLayout.DogListLayout.stackSpacing
+    ) {
+        self.dogs = dogs
+        self.stackSpacing = stackSpacing
+    }
 
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 16) {
+            LazyVStack(spacing: stackSpacing) {
                 ForEach(dogs) { dog in
                     DogCardView(dog: dog)
                         .padding(.horizontal)

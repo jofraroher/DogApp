@@ -10,7 +10,40 @@ import SwiftUI
 struct DogImageView: View {
     
     let url: URL?
-    private let size = CGSize(width: 130, height: 200)
+    
+    let errorImageName: String
+    let errorImageSize: CGFloat
+    let size: CGSize
+    let backgroundColor: Color
+    let cornerRadius: CGFloat
+    let shadowColor: Color
+    let shadowRadius: CGFloat
+    let shadowX: CGFloat
+    let shadowY: CGFloat
+    
+    init(
+        url: URL?,
+        errorImageName: String = ConstantsLayout.DogImageViewLayout.errorImageName,
+        errorImageSize: CGFloat = ConstantsLayout.DogImageViewLayout.errorImageSize,
+        size: CGSize = ConstantsLayout.DogImageViewLayout.size,
+        backgroundColor: Color = ConstantsLayout.DogImageViewLayout.backgroundColor,
+        cornerRadius: CGFloat = ConstantsLayout.DogImageViewLayout.cornerRadius,
+        shadowColor: Color = ConstantsLayout.DogImageViewLayout.shadowColor,
+        shadowRadius: CGFloat = ConstantsLayout.DogImageViewLayout.shadowRadius,
+        shadowX: CGFloat = ConstantsLayout.DogImageViewLayout.shadowX,
+        shadowY: CGFloat = ConstantsLayout.DogImageViewLayout.shadowY
+    ) {
+        self.url = url
+        self.errorImageName = errorImageName
+        self.errorImageSize = errorImageSize
+        self.size = size
+        self.backgroundColor = backgroundColor
+        self.cornerRadius = cornerRadius
+        self.shadowColor = shadowColor
+        self.shadowRadius = shadowRadius
+        self.shadowX = shadowX
+        self.shadowY = shadowY
+    }
 
     var body: some View {
         AsyncImage(url: url) { phase in
@@ -18,29 +51,48 @@ struct DogImageView: View {
             case .empty:
                 ProgressView()
                     .frame(width: size.width, height: size.height)
-                    .background(Color.gray.opacity(0.2))
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .shadow(color: Color.black.opacity(0.06), radius: 3, x: 0, y: 2)
+                    .background(backgroundColor)
+                    .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+                    .shadow(
+                        color: shadowColor,
+                        radius: shadowRadius,
+                        x: shadowX,
+                        y: shadowY
+                    )
             case .success(let image):
                 image
                     .resizable()
                     .scaledToFill()
                     .frame(width: size.width, height: size.height)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
                     .clipped()
-                    .shadow(color: Color.black.opacity(0.06), radius: 3, x: 0, y: 2)
+                    .shadow(
+                        color: shadowColor,
+                        radius: shadowRadius,
+                        x: shadowX,
+                        y: shadowY
+                    )
             case .failure:
                 ZStack {
-                    Color.gray.opacity(0.2)
-                    Image(systemName: "photo.badge.exclamationmark.fill")
+                    backgroundColor
+                    
+                    Image(systemName: errorImageName)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 40, height: 40)
+                        .frame(
+                            width: errorImageSize,
+                            height: errorImageSize
+                        )
                         .foregroundColor(.gray)
                 }
                 .frame(width: size.width, height: size.height)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .shadow(color: Color.black.opacity(0.06), radius: 3, x: 0, y: 2)
+                .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+                .shadow(
+                    color: shadowColor,
+                    radius: shadowRadius,
+                    x: shadowX,
+                    y: shadowY
+                )
             @unknown default:
                 EmptyView()
             }

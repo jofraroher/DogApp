@@ -12,9 +12,22 @@ struct ErrorView: View {
     let title: String
     let buttonTitle: String
     let retryAction: () -> Void
+    let stackSpacing: CGFloat
+    
+    init(
+        title: String,
+        buttonTitle: String,
+        retryAction: @escaping () -> Void,
+        stackSpacing: CGFloat = ConstantsLayout.ErrorViewLayout.stackSpacing
+    ) {
+        self.title = title
+        self.buttonTitle = buttonTitle
+        self.retryAction = retryAction
+        self.stackSpacing = stackSpacing
+    }
 
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: stackSpacing) {
             Text(title)
                 .foregroundColor(.red)
             Button(buttonTitle, action: retryAction)
