@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DogCardView: View {
     
-    let dog: DogViewModel
+    let dog: Dog
     
     let stackSpacing: CGFloat
     let imageOffsetX: CGFloat
@@ -21,7 +21,7 @@ struct DogCardView: View {
     let bottomSpace: CGFloat
     
     init(
-        dog: DogViewModel,
+        dog: Dog,
         stackSpacing: CGFloat = ConstantsLayout.DogCardViewLayout.stackSpacing,
         imageOffsetX: CGFloat = ConstantsLayout.DogCardViewLayout.imageOffsetX,
         imageZIndex: CGFloat = ConstantsLayout.DogCardViewLayout.imageZIndex,
@@ -44,7 +44,7 @@ struct DogCardView: View {
 
     var body: some View {
         HStack(alignment: .center, spacing: stackSpacing) {
-            DogImageView(url: dog.imageURL)
+            DogImageView(url: URL(string: dog.image))
                 .offset(x: imageOffsetX)
                 .zIndex(imageZIndex)
 
@@ -59,16 +59,12 @@ struct DogCardView: View {
     }
 }
 
-struct DogCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            DogCardView(dog: .mock)
-                .previewDisplayName("Dog Card - Default")
-
-            DogCardView(dog: .mockLongDescription)
-                .previewDisplayName("Dog Card - Long Description")
-        }
-        .previewLayout(.sizeThatFits)
+#Preview("Dog Card - Default") {
+    DogCardView(dog: StubDog.mock)
         .padding()
-    }
+}
+
+#Preview("Dog Card - Long Description") {
+    DogCardView(dog: StubDog.mockLongDescription)
+        .padding()
 }

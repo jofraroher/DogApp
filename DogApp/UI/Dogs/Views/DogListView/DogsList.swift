@@ -9,12 +9,12 @@ import SwiftUI
 
 struct DogsList: View {
     
-    let dogs: [DogViewModel]
+    let dogs: [Dog]
     
     let stackSpacing: CGFloat
     
     init(
-        dogs: [DogViewModel],
+        dogs: [Dog],
         stackSpacing: CGFloat = ConstantsLayout.DogListLayout.stackSpacing
     ) {
         self.dogs = dogs
@@ -35,5 +35,5 @@ struct DogsList: View {
 }
 
 #Preview {
-    DogsList(dogs: [.mock, .mockLongDescription])
+    DogsList(dogs: [StubDog.mock, StubDog.mockLongDescription])
 }

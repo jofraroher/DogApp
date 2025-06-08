@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DogCardContentView: View {
     
-    let dog: DogViewModel
+    let dog: Dog
     
     let frameHeight: CGFloat
     let colorOpacity: CGFloat
@@ -20,7 +20,7 @@ struct DogCardContentView: View {
     let textLineLimit: Int
     
     init(
-        dog: DogViewModel,
+        dog: Dog,
         frameHeight: CGFloat = ConstantsLayout.DogCardContentViewLayout.frameHeight,
         colorOpacity: CGFloat = ConstantsLayout.DogCardContentViewLayout.colorOpacity,
         cornerRadius: CGFloat = ConstantsLayout.DogCardContentViewLayout.cornerRadius,
@@ -76,6 +76,6 @@ struct DogCardContentView: View {
 }
 
 #Preview {
-    DogCardContentView(dog: .mock)
+    DogCardContentView(dog: StubDog.mock)
         .padding()
 }

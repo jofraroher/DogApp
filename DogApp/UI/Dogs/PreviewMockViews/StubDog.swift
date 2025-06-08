@@ -1,14 +1,13 @@
 //
-//  Dog+Mock.swift
+//  DogViewModel+Mock.swift
 //  DogApp
 //
 //  Created by Jose Francisco Rosales Hernandez on 06/06/25.
 //
 
 #if DEBUG
-import Foundation
-
-extension Dog {
+enum StubDog {
+    
     static var mock: Dog {
         Dog(
             id: "1",
@@ -18,7 +17,7 @@ extension Dog {
             age: 2
         )
     }
-
+    
     static var mockLongDescription: Dog {
         Dog(
             id: "2",

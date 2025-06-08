@@ -9,7 +9,7 @@ import Combine
 
 @MainActor
 protocol DogsListViewModelType: ObservableObject {
-    var dogs: [DogViewModel] { get }
+    var dogs: [Dog] { get }
     var isLoading: Bool { get }
     var errorMessage: String? { get }
     var state: DogsListViewModel.ViewState { get }

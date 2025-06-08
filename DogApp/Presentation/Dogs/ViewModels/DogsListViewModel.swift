@@ -10,7 +10,7 @@ import Combine
 
 final class DogsListViewModel: DogsListViewModelType {
     
-    @Published var dogs: [DogViewModel] = []
+    @Published var dogs: [Dog] = []
     @Published var isLoading = false
     @Published var errorMessage: String? = nil
     
@@ -29,8 +29,7 @@ final class DogsListViewModel: DogsListViewModelType {
         errorMessage = nil
         
         do {
-            let dogsFromDomain = try await fetchDogsUseCase.execute()
-            dogs = DogViewModelMapper.map(from: dogsFromDomain)
+            dogs = try await fetchDogsUseCase.execute()
         } catch {
             errorMessage = String(localized: Strings.DogsList.loadingError)
         }
@@ -44,7 +43,7 @@ extension DogsListViewModel {
         case loading
         case error(String)
         case empty
-        case loaded([DogViewModel])
+        case loaded([Dog])
     }
     
     var state: ViewState {

@@ -9,25 +9,20 @@ import SwiftUI
 import SwiftData
 
 struct ContentRootView: View {
+
     @Environment(\.modelContext) private var context
+    @State private var environment: AppEnvironment?
 
     var body: some View {
-        DogsListView(viewModel: makeDogsListViewModel())
-    }
-
-    private func makeDogsListViewModel() -> DogsListViewModel {
-        let storage = SwiftDataStorage<DogEntity>(context: context)
-
-        let localDataSource = DogLocalDataSource(storage: storage)
-        let remoteDataSource = DogRemoteDataSource()
-
-        let repository = DogsRepositoryImpl(
-            remoteDataSource: remoteDataSource,
-            localDataSource: localDataSource
-        )
-
-        let fetchUseCase = FetchDogsUseCase(repository: repository)
-
-        return DogsListViewModel(fetchDogsUseCase: fetchUseCase)
+        Group {
+            if let environment {
+                DogsListView(viewModel: environment.makeDogsListViewModel())
+            } else {
+                LoadingView(title: String(localized: Strings.DogsList.loadingTitle))
+            }
+        }
+        .task {
+            environment = AppEnvironment.live(context: context)
+        }
     }
 }

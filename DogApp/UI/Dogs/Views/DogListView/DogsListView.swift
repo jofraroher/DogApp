@@ -55,20 +55,20 @@ struct DogsListView<ViewModel: DogsListViewModelType>: View {
     }
 }
 
-struct DogsListView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            DogsListView(viewModel: MockDogsListViewModel.withDogs)
-                .previewDisplayName("List with data")
-            
-            DogsListView(viewModel: MockDogsListViewModel.loading)
-                .previewDisplayName("Loading")
-            
-            DogsListView(viewModel: MockDogsListViewModel.error)
-                .previewDisplayName("Error state")
-            
-            DogsListView(viewModel: MockDogsListViewModel.empty)
-                .previewDisplayName("Empty list")
-        }
-    }
+#Preview("List with data") {
+    DogsListView(
+        viewModel: AppEnvironment.mockLoading().makeDogsListViewModel()
+    )
+}
+
+#Preview("Error state") {
+    DogsListView(
+        viewModel: AppEnvironment.mockError().makeDogsListViewModel()
+    )
+}
+
+#Preview("Empty list") {
+    DogsListView(
+        viewModel: AppEnvironment.mockEmpty().makeDogsListViewModel()
+    )
 }
