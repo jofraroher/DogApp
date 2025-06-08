@@ -7,6 +7,10 @@
 
 import Foundation
 
+/// Concrete implementation of `DogsRepositoryType`.
+///
+/// Combines remote and local data sources to retrieve dog information.
+/// Use `remoteDataSource` for fresh data, and `localDataSource` for caching or fallback.
 final class DogsRepositoryImpl: DogsRepositoryType {
 
     private let remoteDataSource: DogRemoteDataSourceType

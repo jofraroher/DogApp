@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+/// UI component representing a single dog in the list.
+///
+/// Combines image and descriptive content, with layout customization options.
+/// `accessibilityIdentifier` is applied for UI testing.
 struct DogCardView: View {
     
     let dog: Dog

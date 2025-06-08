@@ -8,6 +8,14 @@
 import Foundation
 import SwiftData
 
+/// Factory container for building application environments (real or mocked).
+///
+/// Responsibilities:
+/// - Provide `makeDogsListViewModel()` to build the appropriate view model
+/// - Centralize dependency wiring (e.g., data sources, repositories, use cases)
+/// - Enable controlled testing by exposing mocks for UI Test scenarios
+///
+/// Extend this structure as needed for other screens or view models.
 struct AppEnvironment {
 
     let makeDogsListViewModel: @MainActor () -> DogsListViewModel

@@ -8,6 +8,13 @@
 import SwiftUI
 import SwiftData
 
+/// Root view of the app. It selects the appropriate environment for building dependencies,
+/// including mocks for UI Testing via launch arguments.
+///
+/// Supports:
+/// - UI tests (`-UITEST_EMPTY_STATE`, `-UITEST_ERROR_STATE`, etc.)
+/// - Dependency injection via `AppEnvironment`
+/// - LoadingView as a fallback while the environment is being resolved
 struct ContentRootView: View {
 
     @Environment(\.modelContext) private var context

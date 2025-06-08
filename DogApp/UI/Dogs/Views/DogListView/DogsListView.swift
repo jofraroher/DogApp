@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+/// Main view responsible for displaying the dog list.
+///
+/// Displays loading, error, empty or content states depending on `viewModel` state.
+/// Should be initialized with a concrete implementation of `DogsListViewModelType`.
 struct DogsListView<ViewModel: DogsListViewModelType>: View {
 
     @StateObject private var viewModel: ViewModel

@@ -8,6 +8,10 @@
 import Foundation
 import SwiftData
 
+/// Generic SwiftData-based local storage abstraction.
+///
+/// Allows saving, reading, and clearing data from local SwiftData context.
+/// This class is generic over entity type and can be reused across features.
 final class SwiftDataStorage<Entity: PersistentModel & DTOTransformable>: EntityStorage {
     typealias Item = Entity.DTOType
 
