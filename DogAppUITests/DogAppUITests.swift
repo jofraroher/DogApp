@@ -20,21 +20,24 @@ final class DogAppUITests: XCTestCase {
     }
 
     func test_loadingState_showsCard() {
-        // ARRANGE & ACT
+        // ARRANGE / ACT
         robot.launch(withArguments: ["-UITEST_SUCCESS_STATE"])
-
         // ASSERT
         robot.assertListIsVisible()
-        robot.assertDogCardVisible(id: "1") // opcional: validar una card específica
+        robot.assertDogCardVisible(id: "1")
     }
 
     func test_emptyState_showsPlaceholder() {
+        // ARRANGE / ACT
         robot.launch(withArguments: ["-UITEST_EMPTY_STATE"])
+        // ASSERT
         robot.assertEmptyStateVisible()
     }
 
     func test_errorState_showsRetry() {
+        // ARRANGE / ACT
         robot.launch(withArguments: ["-UITEST_ERROR_STATE"])
+        // ASSERT
         robot.assertRetryButtonVisible()
     }
 }
