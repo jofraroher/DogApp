@@ -30,6 +30,7 @@ struct DogsList: View {
                 }
             }
             .padding(.top)
+            .accessibilityIdentifier("dogsList")
         }
     }
 }

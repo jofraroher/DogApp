@@ -13,6 +13,7 @@ struct EmptyStateView: View {
     var body: some View {
         Text(message)
             .foregroundStyle(.textPrimary)
+            .accessibilityIdentifier("emptyStateLabel")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

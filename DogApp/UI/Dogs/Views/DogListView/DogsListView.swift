@@ -57,7 +57,7 @@ struct DogsListView<ViewModel: DogsListViewModelType>: View {
 
 #Preview("List with data") {
     DogsListView(
-        viewModel: AppEnvironment.mockLoading().makeDogsListViewModel()
+        viewModel: AppEnvironment.mockSuccess().makeDogsListViewModel()
     )
 }
 

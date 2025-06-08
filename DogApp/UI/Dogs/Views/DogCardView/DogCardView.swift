@@ -56,6 +56,8 @@ struct DogCardView: View {
         }
         .frame(height: frameHeight)
         .padding(.bottom, bottomSpace)
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("DogCardView\(dog.id)")
     }
 }
 

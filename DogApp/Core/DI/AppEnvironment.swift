@@ -31,7 +31,7 @@ struct AppEnvironment {
     }
 
     @MainActor
-    static func mockLoading() -> AppEnvironment {
+    static func mockSuccess() -> AppEnvironment {
         return AppEnvironment {
             DogsListViewModel(fetchDogsUseCase: MockFetchDogsUseCase())
         }

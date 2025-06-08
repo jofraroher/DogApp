@@ -31,6 +31,7 @@ struct ErrorView: View {
             Text(title)
                 .foregroundColor(.red)
             Button(buttonTitle, action: retryAction)
+                .accessibilityIdentifier("retryButton")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
