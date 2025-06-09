@@ -1,5 +1,5 @@
 
-# 🐶 DogApp – Konfío Mobile Engineer Challenge
+# 🐶 DogApp – Konfío Challenge
 
 DogApp is a SwiftUI-based application developed as part of a technical challenge. It fetches a list of dogs from a public API and presents them in a clean, responsive interface. The app also implements local persistence using SwiftData to improve performance and enable offline access.
 
@@ -18,7 +18,7 @@ DogApp is a SwiftUI-based application developed as part of a technical challenge
 
 The project follows Clean Architecture principles, with well-defined layers:
 
-<img src="./ArchitectureDiagram.png" alt="DogApp Clean Architecture Diagram" width="600"/>
+<img src="./Architecture.png" alt="DogApp Clean Architecture Diagram" width="500"/>
 
 - **UI Layer:** SwiftUI views (`DogsListView`, `DogCardView`) reacting to ViewModel state.
 - **ViewModel:** Handles presentation logic and interacts with the use case.
