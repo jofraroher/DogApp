@@ -18,7 +18,7 @@ DogApp is a SwiftUI-based application developed as part of a technical challenge
 
 The project follows Clean Architecture principles, with well-defined layers:
 
-![DogApp Clean Architecture Diagram](./Screenshot_2025-06-07_at_11.33.22_pm.png)
+![DogApp Clean Architecture Diagram](./ArchitectureDiagram.png)
 
 - **UI Layer:** SwiftUI views (`DogsListView`, `DogCardView`) reacting to ViewModel state.
 - **ViewModel:** Handles presentation logic and interacts with the use case.
@@ -80,5 +80,3 @@ GET https://jsonblob.com/api/1151549092634943488
 ## 📬 Final Notes
 
 The app was built prioritizing clean, testable code and scalability. SwiftData was chosen over UserDefaults for a modern persistence layer.
-
----
