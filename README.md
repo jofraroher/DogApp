@@ -51,7 +51,7 @@ Color usage follows the provided design:
 |-----------------|-----------|
 | Primary text    | `#333333` |
 | Secondary text  | `#666666` |
-| Card background | `#F8F8F8` |
+| Background      | `#F8F8F8` |
 
 ## 🔗 Endpoint
 

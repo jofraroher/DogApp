@@ -22,7 +22,7 @@ struct DogsListView<ViewModel: DogsListViewModelType>: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.backgroundBase.ignoresSafeArea()
+                Color.background.ignoresSafeArea()
                 
                 content
             }
@@ -30,9 +30,7 @@ struct DogsListView<ViewModel: DogsListViewModelType>: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear {
-            Task {
-                await viewModel.onAppear()
-            }
+            Task { await viewModel.onAppear() }
         }
     }
     
