@@ -23,7 +23,7 @@ struct DogsList: View {
 
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: stackSpacing) {
+            VStack(spacing: stackSpacing) {
                 ForEach(dogs) { dog in
                     DogCardView(dog: dog)
                         .padding(.horizontal)
