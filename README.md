@@ -80,3 +80,5 @@ GET https://jsonblob.com/api/1151549092634943488
 ## 📬 Final Notes
 
 The app was built prioritizing clean, testable code and scalability. SwiftData was chosen over UserDefaults for a modern persistence layer.
+
+cosas cosas cosas
